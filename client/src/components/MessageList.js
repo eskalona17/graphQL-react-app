@@ -21,7 +21,19 @@ const MessageList = () => {
   }
 
   console.log(data);
-  return <div className="col-md-6 offset-md-3"></div>;
+  return (
+    <div className="col-md-6 offset-md-3">
+      {data.messages.map(({_id, title, content, author}) => (
+        <div key={_id} className="card m-2">
+          <div className="card-body">
+            <h4>{title}</h4>
+            <p>{content}</p>
+            <p>{author}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default MessageList;
